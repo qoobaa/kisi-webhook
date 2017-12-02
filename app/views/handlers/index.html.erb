@@ -1,16 +1,26 @@
-Webhook URL: <%= api_webhook_url(@webhook) %>
+<h2>
+  Your webhook URL
+</h2>
+
+<p>
+  <%= api_webhook_url(@webhook) %>
+</p>
 
 <% if @handlers.empty? %>
-  <p>No handlers defined</p>
+  <ul class="list-group">
+    <li class="list-group-item text-muted text-center">
+      No handlers defined
+    </li>
+  </ul>
 <% else %>
-  <ul>
+  <ul class="list-group">
     <% @handlers.each do |handler| %>
-      <li>
-        handler <%= handler.name %>
-        <%= link_to "Delete", webhook_handler_path(@webhook, handler), data: {method: :delete, confirm: "Are you sure?"} %>
+      <li class="list-group-item">
+        <%= handler.name %>
+        <%= link_to "Delete", webhook_handler_path(@webhook, handler), data: {method: :delete, confirm: "Are you sure?"}, class: "float-right" %>
       </li>
     <% end %>
   </ul>
 <% end %>
 
-<%= link_to "New handler", new_webhook_handler_path(@webhook) %>
+<%= link_to "New handler", new_webhook_handler_path(@webhook), class: "btn btn-primary btn-block" %>

@@ -1,3 +1,5 @@
+<h2>New handler</h2>
+
 <%= form_for @handler, url: webhook_handlers_path(@webhook) do |form| %>
   <legend class="col-form-legend">General</legend>
 
@@ -58,5 +60,6 @@
     </div>
   </div>
 
-  <%= form.submit "Create handler", class: "btn btn-primary" %>
+  <%= form.submit "Create handler", class: "btn btn-primary btn-block" %>
+  <%= link_to "Cancel", webhook_handlers_path(@webhook), class: "btn btn-default btn-block" %>
 <% end %>

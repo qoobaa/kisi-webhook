@@ -1,3 +1,12 @@
-<%= form_for @webhook do |form| %>
-  <%= form.submit "Create a new webhook!" %>
-<% end %>
+<div class="jumbotron">
+  <h1 class="display-3">Kisi Webhook!</h1>
+  <hr class="my-4">
+  <p>This is a simple tool that allows you to send email messages on various Kisi events.</p>
+  <p class="lead">
+    <%= form_for @webhook do |form| %>
+      <%= form.submit "Create a new webhook", class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </p>
+</div>
+
+

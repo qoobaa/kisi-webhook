@@ -1,24 +1,18 @@
-# README
+# Kisi Webhook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple app that allows you to generate webhook handlers for
+[Kisi](http://getkisi.com/), to deliver email messages based on
+various Kisi events.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+- Ruby 2.4.2
+- PostgreSQL 10.1
 
-* System dependencies
+## Development
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle install
+rails db:setup
+rails server
+```
