@@ -6,7 +6,7 @@ various Kisi events.
 
 ## Demo
 
-(Heroku App)[https://kisi-webhook.herokuapp.com/]
+[Heroku App](https://kisi-webhook.herokuapp.com/)
 
 ## Requirements
 
