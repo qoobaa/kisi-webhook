@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171202105655) do
   create_table "handlers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.bigint "webhook_id"
     t.json "conditions"
-    t.string "recipients", array: true
+    t.string "recipient"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

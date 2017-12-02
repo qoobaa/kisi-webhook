@@ -3,7 +3,7 @@ class CreateHandlers < ActiveRecord::Migration[5.1]
     create_table :handlers, id: :uuid do |t|
       t.belongs_to :webhook
       t.json :conditions
-      t.string :recipients, array: true
+      t.string :recipient
       t.text :message
       t.timestamps
     end
