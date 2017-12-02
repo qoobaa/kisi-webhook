@@ -1,0 +1,1 @@
+{"actor_type":"User","actor_id":107181,"action":"create","object_type":"Integration","object_id":846,"success":true,"code":"ffffff","message":"Kuba created integration test.","references":[{"type":"Integration","id":846},{"type":"Place","id":5212},{"type":"User","id":107181},{"type":"User","id":107181}],"created_at":"2017-12-02T10:28:29+00:00"}

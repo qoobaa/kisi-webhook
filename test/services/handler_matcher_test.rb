@@ -6,12 +6,14 @@ class HandlerMatcherTest < ActiveSupport::TestCase
     handler1 = webhook.handlers.create!(
       conditions: {"object_id" => "5", "object_type" => "Lock", success: "false"},
       recipient: "test1@example.com",
-      message: "Lock!"
+      message: "Lock!",
+      name: "Test 1"
     )
     handler2 = webhook.handlers.create!(
       conditions: {"object_id" => "5", "object_type" => "Lock", success: "true"},
       recipient: "test1@example.com",
-      message: "Lock!"
+      message: "Lock!",
+      name: "Test 2"
     )
     payload = {
       "object_id" => "5",

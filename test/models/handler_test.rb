@@ -23,7 +23,8 @@ class HandlerTest < ActiveSupport::TestCase
         action: "unlock"
       },
       recipient: "test@example.com",
-      message: "Door unlocked!"
+      message: "Door unlocked!",
+      name: "Test"
     )
 
     assert handler.save
