@@ -6,10 +6,10 @@
 #
 default: &default
   adapter: postgresql
-  username: postgres
 
 development:
   <<: *default
+  username: postgres
   database: kisi_webhook_development
 
 # Warning: The database defined as "test" will be erased and
