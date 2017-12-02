@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20171202105655) do
   enable_extension "pgcrypto"
 
   create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "webhook_id"
-    t.bigint "handler_id"
+    t.uuid "webhook_id"
+    t.uuid "handler_id"
     t.json "payload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20171202105655) do
   end
 
   create_table "handlers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "webhook_id"
+    t.uuid "webhook_id"
     t.json "conditions"
     t.string "recipient"
     t.text "message"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["webhook_id"], name: "index_handlers_on_webhook_id"

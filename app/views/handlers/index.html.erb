@@ -6,7 +6,7 @@ Webhook URL: <%= api_webhook_url(@webhook) %>
   <ul>
     <% @handlers.each do |handler| %>
       <li>
-        handler <%= handler.id %>
+        handler <%= handler.name %>
         <%= link_to "Delete", webhook_handler_path(@webhook, handler), data: {method: :delete, confirm: "Are you sure?"} %>
       </li>
     <% end %>

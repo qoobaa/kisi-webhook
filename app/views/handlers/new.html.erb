@@ -1,5 +1,62 @@
-<%= form_for [@webhook, @handler] do |form| %>
-  <%= form.text_field :recipients %>
-  <%= form.text_area :message %>
-  <%= form.submit %>
+<%= form_for @handler, url: webhook_handlers_path(@webhook) do |form| %>
+  <legend class="col-form-legend">General</legend>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "handler name" %>
+    <div class="invalid-feedback">
+      <%= @handler.errors[:name].join(", ") %>
+    </div>
+  </div>
+
+  <legend class="col-form-legend">Conditions</legend>
+
+  <div class="form-group">
+    <%= label_tag "handler[conditions][actor_type]", "Actor Type" %>
+    <%= select_tag "handler[conditions][actor_type]",
+                   options_from_collection_for_select(Handler::ACTOR_TYPES, :to_s, :to_s),
+                   include_blank: "irrelevant", class: "form-control" %>
+
+    <%= label_tag "handler[conditions][actor_id]", "Actor ID" %>
+    <%= text_field_tag "handler[conditions][actor_id]", "", class: "form-control",
+                       placeholder: "leave blank if irrelevant" %>
+
+    <%= label_tag "handler[conditions][object_type]", "Object Type" %>
+    <%= select_tag "handler[conditions][object_type]",
+                   options_from_collection_for_select(Handler::OBJECT_TYPES, :to_s, :to_s),
+                   include_blank: "irrelevant", class: "form-control" %>
+
+    <%= label_tag "handler[conditions][object_id]", "Object ID" %>
+    <%= text_field_tag "handler[conditions][object_id]", "",
+                       class: "form-control", placeholder: "leave blank if irrelevant" %>
+
+    <%= label_tag "handler[conditions][success]", "Success" %>
+    <%= select_tag "handler[conditions][success]",
+                   options_from_collection_for_select(Handler::SUCCESSES, :to_s, :to_s),
+                   include_blank: "irrelevant", class: "form-control" %>
+
+    <div class="invalid-feedback" style="<%= 'display: block' if @handler.errors[:conditions].present? %>">
+      <%= @handler.errors[:conditions].join(", ") %>
+    </div>
+  </div>
+
+  <legend class="col-form-legend">Messaging</legend>
+
+  <div class="form-group">
+    <%= form.label :recipient %>
+    <%= form.text_field :recipient, class: "form-control", placeholder: "enter recipient email" %>
+    <div class="invalid-feedback">
+      <%= @handler.errors[:recipient].join(", ") %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :message %>
+    <%= form.text_area :message, class: "form-control", placeholder: "enter message" %>
+    <div class="invalid-feedback">
+      <%= @handler.errors[:message].join(", ") %>
+    </div>
+  </div>
+
+  <%= form.submit "Create handler", class: "btn btn-primary" %>
 <% end %>

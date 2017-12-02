@@ -31,6 +31,6 @@ class HandlersController < ApplicationController
   end
 
   def handler_params
-    params.require(:handler).permit(:recipients, :message)
+    params.require(:handler).permit(:name, :recipient, :message, conditions: Handler::CONDITIONS)
   end
 end
