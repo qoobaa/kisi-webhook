@@ -1,0 +1,5 @@
+<%= form_for [@webhook, @handler] do |form| %>
+  <%= form.text_field :recipients %>
+  <%= form.text_area :message %>
+  <%= form.submit %>
+<% end %>
