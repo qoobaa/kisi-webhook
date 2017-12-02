@@ -6,7 +6,7 @@ various Kisi events.
 
 ## Demo
 
-(https://kisi-webhook.herokuapp.com/)[https://kisi-webhook.herokuapp.com/]
+(Heroku App)[https://kisi-webhook.herokuapp.com/]
 
 ## Requirements
 
@@ -20,3 +20,14 @@ bundle install
 rails db:setup
 rails server
 ```
+
+## Nice to have/improve
+
+- the mailer should use background jobs for delivery to avoid timeouts on webhook processing
+- it should be possible to return to an existing webhook definition, and update it
+- allow more sophisticated conditions
+- displaying recorded events in a webhook
+
+## Copyright
+
+Copyright © 2017 Kuba Kuźma. See LICENSE for details.
